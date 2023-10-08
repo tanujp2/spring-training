@@ -12,5 +12,6 @@
         <module>03-SecuringActuatorEndpoints</module>
         <module>04-RunSpringFromCommandLine</module>
         <module>05-InjectingLiteralValues</module>
+        <module>06-ConfiguringSpringBootServer</module>
     </modules>
 </project>
