@@ -10,5 +10,6 @@
     <module>01-HelloWorld</module>
     <module>02-Actuator</module>
     <module>03-SecuringActuatorEndpoints</module>
+    <module>04-RunSpringFromCommandLine</module>
   </modules>
 </project>
