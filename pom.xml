@@ -8,5 +8,6 @@
   <name>spring-training</name>
   <modules>
     <module>01-HelloWorld</module>
+    <module>02-Actuator</module>
   </modules>
 </project>
