@@ -11,9 +11,19 @@ public class DemoRestController {
 	private Coach coach;
 
 	@Autowired
+//	since you are using setter method to inject the dependency you call this mechanism as setter injection
 	public void setCoach(Coach coach) {
 		this.coach = coach;
 	}
+	
+//	in fact, spring can use any arbitrary method for dependency injection provided it is annotated with
+//	@Autowired
+	
+//	constructor injection is the recommended approach, use it when the dependency has to be provided
+//	from your end
+	
+//	setter injection is used when the dependency setting is not that much important and a default value
+//	will do the work
 
 	@GetMapping("/dailyworkout")
 	public String getDailyWorkout() {
