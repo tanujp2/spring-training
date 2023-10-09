@@ -25,6 +25,8 @@ public class DemoRestController {
 
 //	@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, 
 //	ElementType.TYPE, ElementType.ANNOTATION_TYPE})
+	
+//	@Qualifier injects the bean by name of the bean.
 
 	public DemoRestController(@Qualifier("cricketCoach") Coach coach) {
 		this.coach = coach;
