@@ -1,4 +1,4 @@
-package live.tanujdevops.common;
+package util;
 
 public interface Coach {
 	String getDailyWorkout();
