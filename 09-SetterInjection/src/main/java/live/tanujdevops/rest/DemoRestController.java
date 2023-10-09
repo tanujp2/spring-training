@@ -12,13 +12,13 @@ public class DemoRestController {
 
 	@Autowired
 //	since you are using setter method to inject the dependency you call this mechanism as setter injection
-//	public void setCoach(Coach coach) {
-//		this.coach = coach;
-//	
-
-	public void coachInjector(Coach coach) {
+	public void setCoach(Coach coach) {
 		this.coach = coach;
 	}
+
+//	public void coachInjector(Coach coach) {
+//		this.coach = coach;
+//	}
 
 //	in fact, spring can use any arbitrary method for dependency injection provided it is annotated with
 //	@Autowired
