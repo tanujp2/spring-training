@@ -21,14 +21,15 @@ public class DemoRestController {
 
 //	there can be only one @Primary, if @Primary is used on multiple implementations then again
 //	you have a problem
-	
+
 //	which one to use: @Qualifier or @Primary
 //	@Qualifier is preferable
-	
+
 //	when both @Qualifier and @Primary is present, the @Qualifier takes precedence
 
 	@Autowired
-	public DemoRestController(Coach coach) {
+//	primary bean : trackCoach
+	public DemoRestController(@Qualifier("cricketCoach") Coach coach) {
 		this.coach = coach;
 	}
 
