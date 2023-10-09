@@ -1,5 +1,6 @@
 package live.tanujdevops.rest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ public class DemoRestController {
 //	because it makes unit testing harder.
 //	field injection uses reflections to inject the dependency.
 
+	@Autowired
 	private Coach coach;
 
 	@GetMapping("/dailyworkout")
