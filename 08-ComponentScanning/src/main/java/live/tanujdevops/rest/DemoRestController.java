@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import util.Coach;
+import live.tanujdevops.common.Coach;
 
 //by default, spring scans for components in the directory in which the @SpringBootApplication
 //resides in rescursive manner, that includes its children directories also.

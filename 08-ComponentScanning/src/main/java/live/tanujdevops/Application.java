@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //use scanBasePackages argument of @SpringBootApplication
 //do list the package where @SpringBootApplication resides also
 
-@SpringBootApplication(scanBasePackages = { "live.tanujdevops", "util" })
+//@SpringBootApplication(scanBasePackages = { "live.tanujdevops", "util" })
+@SpringBootApplication
 public class Application {
 
 	public static void main(String[] args) {

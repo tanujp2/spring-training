@@ -1,4 +1,4 @@
-package util;
+package live.tanujdevops.common;
 
 import org.springframework.stereotype.Component;
 
