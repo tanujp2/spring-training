@@ -11,15 +11,22 @@ import live.tanujdevops.common.Coach;
 public class DemoRestController {
 
 	private Coach coach;
+	private Coach anotherCoach;
 
 	@Autowired
-	public DemoRestController(@Qualifier("cricketCoach") Coach coach) {
+	public DemoRestController(@Qualifier("cricketCoach") Coach coach, @Qualifier("cricketCoach") Coach anotherCoach) {
 		System.out.println("DemoRestController.DemoRestController(Coach)");
 		this.coach = coach;
+		this.anotherCoach = anotherCoach;
 	}
 
 	@GetMapping("/dailyworkout")
 	public String getDailyWorkout() {
 		return coach.getDailyWorkout();
+	}
+
+	@GetMapping("/check")
+	public String check() {
+		return "coach == anotherCoach is " + (coach == anotherCoach);
 	}
 }
