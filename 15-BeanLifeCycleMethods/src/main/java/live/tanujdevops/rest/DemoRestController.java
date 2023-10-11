@@ -23,4 +23,18 @@ public class DemoRestController {
 		return coach.getDailyWorkout();
 	}
 
+	@GetMapping("/shutdown")
+	public void shutdown() {
+		Thread t = new Thread(() -> {
+			System.out.println("The system will shutdown in 5 seconds");
+		});
+		t.start();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		System.exit(0);
+	}
 }
