@@ -14,6 +14,7 @@ public class DemoRestController {
 
 	@Autowired
 	public DemoRestController(@Qualifier("cricketCoach") Coach coach) {
+		System.out.println("DemoRestController.DemoRestController(Coach)");
 		this.coach = coach;
 	}
 
