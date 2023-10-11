@@ -23,6 +23,8 @@ public class CricketCoach implements Coach {
 	}
 
 	@PreDestroy
+//	for prototype scoped beans, spring does not call @PreDestroy method, client must write the cleanup code
+//	also prototype beans are lazy by default
 	public void myDestroy() {
 		System.out.println("CricketCoach.myDestroy()");
 	}
