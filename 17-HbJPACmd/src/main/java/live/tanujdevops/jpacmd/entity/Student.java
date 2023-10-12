@@ -12,6 +12,8 @@ import jakarta.persistence.Table;
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	IDENTITY generation means, that the id generation will be handled by the
+//	database identity generation mechanism
 	@Column(name = "id")
 	private int id;
 
