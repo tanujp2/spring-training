@@ -25,6 +25,8 @@ public class StudentDAOImpl implements StudentDAO {
 //	@Transactional is spring annotation, that will automatically start the transaction and end it
 	public void save(Student student) {
 		entityManager.persist(student);
+//		persist() saves the object in the database, and updates the object with any generated
+//		details from the database, such as id
 	}
 
 }
