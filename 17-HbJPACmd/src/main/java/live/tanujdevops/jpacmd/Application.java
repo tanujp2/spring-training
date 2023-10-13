@@ -28,8 +28,19 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			updateStudent(studentDAO);
+			deleteStudent(studentDAO);
 		};
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int id = 4;
+		Student savedStudent = studentDAO.findById(id);
+		System.out.println("Before updating");
+		System.out.println("Student with id " + id + ": " + savedStudent);
+		studentDAO.delete(savedStudent);
+		System.out.println("After deleting");
+		savedStudent = studentDAO.findById(id);
+		System.out.println("Student with id " + id + ": " + savedStudent);
 	}
 
 	private void updateStudent(StudentDAO studentDAO) {

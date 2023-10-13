@@ -64,7 +64,16 @@ public class StudentDAOImpl implements StudentDAO {
 	@Override
 	@Transactional
 	public void delete(Student student) {
-		entityManager.remove(student);
+//		a detached object cannot be deleted
+//		hence make the object managed by the persistence context
+		Student managed;
+		if (entityManager.contains(student)) {
+			entityManager.remove(student);
+			return;
+		}
+
+		managed = entityManager.merge(student);
+		entityManager.remove(managed);
 	}
 
 }
