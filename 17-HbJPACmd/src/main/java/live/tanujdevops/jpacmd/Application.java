@@ -37,9 +37,9 @@ public class Application {
 		Student savedStudent = studentDAO.findById(id);
 		System.out.println("Before updating");
 		System.out.println(savedStudent);
-		savedStudent.setFirstName("Corine");
+		savedStudent.setFirstName("Haven");
 		studentDAO.update(savedStudent);
-		System.out.println("After updating first name to Corine");
+		System.out.println("After updating first name to Haven");
 		System.out.println(savedStudent);
 	}
 
