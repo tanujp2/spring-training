@@ -1,5 +1,7 @@
 package live.tanujdevops.jpacmd;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,8 +28,13 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			readStudent(studentDAO);
+			readAllStudents(studentDAO);
 		};
+	}
+
+	private void readAllStudents(StudentDAO studentDAO) {
+		List<Student> savedStudents = studentDAO.findAll();
+		savedStudents.forEach(student -> System.out.println(student));
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
