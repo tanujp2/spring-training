@@ -28,8 +28,19 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			readAllStudentsByLastName(studentDAO);
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int id = 1;
+		Student savedStudent = studentDAO.findById(id);
+		System.out.println("Before updating");
+		System.out.println(savedStudent);
+		savedStudent.setFirstName("Corine");
+		studentDAO.update(savedStudent);
+		System.out.println("After updating first name to Corine");
+		System.out.println(savedStudent);
 	}
 
 	private void readAllStudentsByLastName(StudentDAO studentDAO) {
