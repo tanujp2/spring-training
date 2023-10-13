@@ -28,8 +28,14 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			deleteStudent(studentDAO);
+			deleteAll(studentDAO);
 		};
+	}
+
+	private void deleteAll(StudentDAO studentDAO) {
+		System.out.println("Deleting all students...");
+		int numDeletions = studentDAO.deleteAll();
+		System.out.println("Deleted " + numDeletions + " records.");
 	}
 
 	private void deleteStudent(StudentDAO studentDAO) {
