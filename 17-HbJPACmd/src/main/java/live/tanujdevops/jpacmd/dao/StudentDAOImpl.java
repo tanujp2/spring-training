@@ -1,9 +1,12 @@
 package live.tanujdevops.jpacmd.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import live.tanujdevops.jpacmd.entity.Student;
 
@@ -33,6 +36,14 @@ public class StudentDAOImpl implements StudentDAO {
 //	@Transactional is not needed because we are not creating or modifying a record
 	public Student findById(int id) {
 		return entityManager.find(Student.class, id);
+	}
+
+	@Override
+	public List<Student> findAll() {
+//		JPA Query Language (JPQL) works with Entity name and Field names of the entity
+		TypedQuery<Student> query = entityManager.createQuery("FROM Student", Student.class);
+		List<Student> students = query.getResultList();
+		return students;
 	}
 
 }

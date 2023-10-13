@@ -1,5 +1,7 @@
 package live.tanujdevops.jpacmd.dao;
 
+import java.util.List;
+
 import live.tanujdevops.jpacmd.entity.Student;
 
 //DAO: Data Access Object is a common design pattern
@@ -9,4 +11,6 @@ public interface StudentDAO {
 	void save(Student student);
 
 	Student findById(int id);
+
+	List<Student> findAll();
 }
