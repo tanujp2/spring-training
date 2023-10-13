@@ -29,4 +29,10 @@ public class StudentDAOImpl implements StudentDAO {
 //		details from the database, such as id
 	}
 
+	@Override
+//	@Transactional is not needed because we are not creating or modifying a record
+	public Student findById(int id) {
+		return entityManager.find(Student.class, id);
+	}
+
 }

@@ -7,4 +7,6 @@ import live.tanujdevops.jpacmd.entity.Student;
 //interfaces with DAO object to complete its operations
 public interface StudentDAO {
 	void save(Student student);
+
+	Student findById(int id);
 }
