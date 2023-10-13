@@ -26,8 +26,15 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			createMultipleStudent(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+		int id = 2;
+		System.out.println("Retrieving student with id: " + id);
+		Student savedStudent = studentDAO.findById(1);
+		System.out.println(savedStudent);
 	}
 
 	private void createMultipleStudent(StudentDAO studentDAO) {
