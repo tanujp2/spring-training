@@ -28,8 +28,13 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			readAllStudents(studentDAO);
+			readAllStudentsByLastName(studentDAO);
 		};
+	}
+
+	private void readAllStudentsByLastName(StudentDAO studentDAO) {
+		List<Student> savedStudents = studentDAO.findByLastName("Rouff");
+		savedStudents.forEach(student -> System.out.println(student));
 	}
 
 	private void readAllStudents(StudentDAO studentDAO) {
