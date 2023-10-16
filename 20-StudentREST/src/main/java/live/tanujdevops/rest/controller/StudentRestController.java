@@ -3,6 +3,7 @@ package live.tanujdevops.rest.controller;
 import jakarta.annotation.PostConstruct;
 import live.tanujdevops.rest.entity.Student;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,5 +26,12 @@ public class StudentRestController {
     @GetMapping("/students")
     public List<Student> getStudents() {
         return students;
+    }
+
+    @GetMapping("/students/{id}")
+//    if the path variable name and the method param name are same then there is no need to
+//    specify name attribute in the annotation
+    public Student getStudent(@PathVariable(name = "id") int studentId) {
+        return students.get(studentId);
     }
 }
