@@ -32,25 +32,11 @@ public class StudentRestController {
     }
 
     @GetMapping("/students/{id}")
-//    if the path variable name and the method param name are same then there is no need to
-//    specify name attribute in the annotation
     public Student getStudent(@PathVariable(name = "id") int studentId) {
         if (studentId < 0 || studentId >= students.size()) {
             throw new StudentNotFoundException(String.format("Student not found, id = %d", studentId));
         }
 
         return students.get(studentId);
-    }
-
-    @ExceptionHandler
-    public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException snfe) {
-        StudentErrorResponse error = new StudentErrorResponse(HttpStatus.NOT_FOUND.value(), snfe.getMessage(), new Timestamp(System.currentTimeMillis()));
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler
-    public ResponseEntity<StudentErrorResponse> handleException(Exception ex) {
-        StudentErrorResponse error = new StudentErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage(), new Timestamp(System.currentTimeMillis()));
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 }
