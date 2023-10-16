@@ -2,12 +2,14 @@ package live.tanujdevops.rest.controller;
 
 import jakarta.annotation.PostConstruct;
 import live.tanujdevops.rest.entity.Student;
+import live.tanujdevops.rest.exception.StudentErrorResponse;
 import live.tanujdevops.rest.exception.StudentNotFoundException;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.rmi.StubNotFoundException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +38,13 @@ public class StudentRestController {
         if (studentId < 0 || studentId >= students.size()) {
             throw new StudentNotFoundException(String.format("Student not found, id = %d", studentId));
         }
-        
+
         return students.get(studentId);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException snfe) {
+        StudentErrorResponse error = new StudentErrorResponse(HttpStatus.NOT_FOUND.value(), snfe.getMessage(), new Timestamp(System.currentTimeMillis()));
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 }
