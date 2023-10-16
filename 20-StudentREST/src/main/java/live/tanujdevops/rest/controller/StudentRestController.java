@@ -43,6 +43,7 @@ public class StudentRestController {
     }
 
     @ExceptionHandler
+//    these handlers are specific to the controller
     public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException snfe) {
         StudentErrorResponse error = new StudentErrorResponse(HttpStatus.NOT_FOUND.value(), snfe.getMessage(), new Timestamp(System.currentTimeMillis()));
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
