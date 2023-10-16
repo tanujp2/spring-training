@@ -18,7 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> fetchAll() {
+    public List<Employee> findAll() {
         return employeeDAO.findAll();
     }
 }
