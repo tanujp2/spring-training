@@ -47,4 +47,12 @@ public class StudentRestController {
         StudentErrorResponse error = new StudentErrorResponse(HttpStatus.NOT_FOUND.value(), snfe.getMessage(), new Timestamp(System.currentTimeMillis()));
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler
+//    any other exception is due to bad request such as a request
+//    to get student by passing a string argument as an id
+    public ResponseEntity<StudentErrorResponse> handleException(Exception ex) {
+        StudentErrorResponse error = new StudentErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage(), new Timestamp(System.currentTimeMillis()));
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
 }
