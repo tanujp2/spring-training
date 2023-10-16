@@ -3,24 +3,24 @@ package live.tanujdevops.rest.exception;
 import java.sql.Timestamp;
 
 public class StudentErrorResponse {
-    private String status;
+    private int status;
     private String message;
     private Timestamp timestamp;
 
     public StudentErrorResponse() {
     }
 
-    public StudentErrorResponse(String status, String message, Timestamp timestamp) {
+    public StudentErrorResponse(int status, String message, Timestamp timestamp) {
         this.status = status;
         this.message = message;
         this.timestamp = timestamp;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
