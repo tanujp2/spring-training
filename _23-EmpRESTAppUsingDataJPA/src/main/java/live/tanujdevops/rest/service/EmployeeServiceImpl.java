@@ -1,6 +1,7 @@
 package live.tanujdevops.rest.service;
 
 import live.tanujdevops.rest.entity.Employee;
+import live.tanujdevops.rest.exception.EmployeeNotFoundException;
 import live.tanujdevops.rest.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee findById(int id) {
-        return employeeRepository.findById(id).orElse(null);
+        return employeeRepository.findById(id).orElseThrow(() -> new EmployeeNotFoundException("Employee not found, id = " + id));
     }
 
     @Override
